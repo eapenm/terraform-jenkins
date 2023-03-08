@@ -4,9 +4,9 @@ provider "aws" {
 
 terraform {
   backend "s3" {
-    bucket = "terraform-eapenmani-kottayam-s3"
+    bucket = "terraform-eapenmani-kottayam"
     key    = "terraform-jenkins.tfstate"
-    region = "us-east-1"
+    region = "ap-southeast-2"
   }
 }
 
