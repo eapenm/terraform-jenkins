@@ -4,13 +4,14 @@ pipeline{
         PATH = "${PATH}:${getTerraformPath()}"
     }
     stages{
-        //  stage('S3 - create bucket'){
-        //     steps{
-        //         script{
-        //           createS3Bucket('terraform-eapenmani-kottayam')
-        //         }
-        //     }
-        // }
+         stage('S3 - create bucket'){
+            steps{
+                sh "ansible-playbook S3-bucket.yml"
+                // script{
+                //   createS3Bucket('terraform-eapenmani-kottayam')
+                // }
+            }
+        }
         stage('terraform init and apply - dev'){
             steps{
                 sh "sh returnStatus: true, script: 'terraform workspace new dev'"
@@ -33,6 +34,6 @@ def getTerraformPath(){
     return tfHome
 }
 
-def createS3Bucket(bucketName){
-    sh returnStatus: true, script: "aws s3 mb s3://${bucketName} --region=us-east-1"
-}
+// def createS3Bucket(bucketName){
+//     sh returnStatus: true, script: "aws s3 mb s3://${bucketName} --region=us-east-1"
+// }
