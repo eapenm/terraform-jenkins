@@ -1,5 +1,14 @@
 provider "aws" {
-  region = "${var.region}"
+  region = var.region
+}
+resource "aws_s3_bucket" "b" {
+  bucket = "terraform-eapenmani-kottayam"
+  acl    = "private"
+
+  tags = {
+    Name        = "My bucket"
+    Environment = "DevJKT"
+  }
 }
 
 terraform {

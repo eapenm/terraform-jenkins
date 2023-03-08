@@ -4,13 +4,13 @@ pipeline{
         PATH = "${PATH}:${getTerraformPath()}"
     }
     stages{
-        stage('S3 - create bucket'){
-            steps{
-                script{
-                  createS3Bucket('terraform-eapenmani-kottayam')
-                }
-            }
-        }
+        // stage('S3 - create bucket'){
+        //     steps{
+        //         script{
+        //           createS3Bucket('terraform-eapenmani-kottayam')
+        //         }
+        //     }
+        // }
         stage('terraform init and apply - dev'){
             steps{
                 sh "sh returnStatus: true, script: 'terraform workspace new dev'"
