@@ -4,7 +4,7 @@ pipeline{
         PATH = "${PATH}:${getTerraformPath()}"
     }
     stages{
-        // stage('S3 - create bucket'){
+        //  stage('S3 - create bucket'){
         //     steps{
         //         script{
         //           createS3Bucket('terraform-eapenmani-kottayam')
